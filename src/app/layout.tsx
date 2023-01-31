@@ -1,3 +1,4 @@
+import Navbar from '@/components/Navbar'
 import './globals.css'
 
 export default function RootLayout({
@@ -12,7 +13,13 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+      <Navbar />
+        <div
+          id="page-top-spacer"
+          className="h-12 bg-gradient-to-t from-transparent to-neutral-800"
+        ></div>
+        {children}</body>
     </html>
   )
 }
