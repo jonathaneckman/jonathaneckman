@@ -9,7 +9,7 @@ type Items = {
 export default function PostPreview({ post }: { post: Items }) {
   return (
     <div className="w-full mx-auto group">
-      <Link href={`/posts/${post.slug}`}>
+      <Link href={`/blog/${post.slug}`}>
         {post?.coverImage && (
           <Image
             alt={`cover image for ${post.title}`}
