@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import clsx from 'clsx'
 
-type OuterContainerProps = { className: string, children: React.ReactNode}
+type OuterContainerProps = { className: string, children: React.ReactNode} & React.HTMLAttributes<HTMLDivElement>
 
 const OuterContainer = forwardRef<HTMLDivElement, OuterContainerProps>((
   { className, children, ...rest },
