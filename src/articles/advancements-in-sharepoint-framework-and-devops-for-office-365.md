@@ -2,7 +2,7 @@
 title: Bring DevOps to your O365 Development Team
 excerpt: "Learn how you can enable successful DevOps practices by taking advantage of advancements made in the SharePoint Framework and O365"
 author: Jonathan Eckman
-date: "2019-12-20T07:03:47.149Z"
+date: "2019-12-20"
 tags: ['O365', 'SPFx', 'DevOps']
 coverImage: "/blog/post1.png"
 ---

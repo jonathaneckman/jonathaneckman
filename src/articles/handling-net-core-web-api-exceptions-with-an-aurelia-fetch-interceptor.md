@@ -1,7 +1,7 @@
 ---
 title: Handling .NET Core Web API Exceptions with an Aurelia Interceptor
 author: Jonathan Eckman
-date: "2018-01-14T07:03:47.149Z"
+date: "2018-01-14"
 tags: [".NET Core", "Aurelia"]
 coverImage: "/blog/post1.png"
 excerpt: "Learn how to handle all HTTP response errors with Aurelia's Interceptor interface and .NET Core Exception Handling Middleware."

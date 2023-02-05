@@ -2,7 +2,7 @@
 title: Your First Open Source Contribution
 author: Jonathan Eckman
 excerpt: "I recently had the opportunity to contribute to the Aurelia framework. Aside from a handful of small changes made using GitHub's in-browser code editor, this was my first experience contributing to an open source project. I'm hoping that documenting what I've learned will help those who have wanted to contribute to an open source project but aren't sure where to start or how the pieces fit together."
-date: "2018-01-07T07:03:47.149Z"
+date: "2018-01-07"
 tags: ["Aurelia"]
 coverImage: "/blog/post1.png"
 ---

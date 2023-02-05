@@ -1,7 +1,7 @@
 ---
 title: Failed to decode %PUBLIC_PATH%
 author: Jonathan Eckman
-date: "2018-02-06T07:03:47.149Z"
+date: "2018-02-06"
 tags: ["React"]
 excerpt: "Learn how to fix the 'Failed to decode param %PUBLIC_URL%' error."
 coverImage: "/blog/post1.png"
