@@ -22,9 +22,9 @@ import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoStarbucks from '@/images/logos/starbucks.svg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles, Article } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 import { SVGProps } from 'react'
+import { BlogPost, getAllPosts } from '@/lib/api'
 
 // type IconProps = {
 //   className: string;
@@ -91,17 +91,17 @@ const ArrowDownIcon: IconComponent = ({...rest}) => {
   )
 }
 
-function Article({ article }: { article: Article}) {
+function BlogPostPreview({ post }: { post: BlogPost}) {
   return (
     <Card as="article">
-      <CardTitle href={`/articles/${article.slug}`}>
-        {article.title}
+      <CardTitle href={`/blog/${post.slug}`}>
+        {post.title}
       </CardTitle>
-      <CardEyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
+      <CardEyebrow as="time" dateTime={post.date} decorate>
+        {formatDate(post.date)}
       </CardEyebrow>
-      <CardDescription>{article.excerpt}</CardDescription>
-      <CardCta>Read article</CardCta>
+      <CardDescription>{post.excerpt}</CardDescription>
+      <CardCta>Read post</CardCta>
     </Card>
   )
 }
@@ -259,7 +259,10 @@ function Photos() {
 }
 
 // TODO Convert to app folder method
-export default function Home({ articles }: { articles: Article[] }) {
+export default function Home() {
+  const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
+  const recentPosts = posts.slice(0, 2);
+  
   return (
     <>
       <Head>
@@ -310,8 +313,8 @@ export default function Home({ articles }: { articles: Article[] }) {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
+            {posts.map((post) => (
+              <BlogPostPreview key={post.slug} post={post} />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
@@ -322,19 +325,4 @@ export default function Home({ articles }: { articles: Article[] }) {
       </Container>
     </>
   )
-}
-
-// TODO Convert to app folder method
-export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'production') {
-    await generateRssFeed()
-  }
-
-  return {
-    props: {
-      articles: (await getAllArticles())
-        .slice(0, 4)
-        .map(({ component, ...meta }) => meta),
-    },
-  }
 }

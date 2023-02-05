@@ -1,12 +1,9 @@
 import DateFormatter from "./DateFormatter";
 import Image from "next/image";
 import Link from "next/link";
+import { BlogPost } from "@/lib/api";
 
-type Items = {
-  [key: string]: string;
-};
-
-export default function PostPreview({ post }: { post: Items }) {
+export default function PostPreview({ post }: { post: BlogPost }) {
   return (
     <div className="w-full mx-auto group">
       <Link href={`/blog/${post.slug}`}>
