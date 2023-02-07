@@ -9,7 +9,15 @@ const OpticallyAlignedUnbalancedLogo = () => {
         alignItems: "center",
       }}
     >
-      <Image src={logo} alt="Incorpta logo" height={50} />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-end",
+          height: "20px",
+        }}
+      >
+        <Image src={logo} alt="Incorpta logo" height={30} />
+      </div>
       <a href="/">Home</a>
       <a href="/">About</a>
       <a href="/">Careers</a>
@@ -21,10 +29,10 @@ const MathematicallyCenterAlignedUnbalancedLogo = () => {
   return (
     <nav
       style={{
-        alignItems: "flex-end",
+        alignItems: "center",
       }}
     >
-      <Image src={logo} alt="Incorpta logo" height={50} />
+      <Image src={logo} alt="Incorpta logo" height={30} />
       <a href="/">Home</a>
       <a href="/">About</a>
       <a href="/">Careers</a>
@@ -36,10 +44,10 @@ const MathematicallyBottomAlignedUnbalancedLogo = () => {
   return (
     <nav
       style={{
-        alignItems: "center",
+        alignItems: "flex-end",
       }}
     >
-      <Image src={logo} alt="Incorpta logo" height={50} />
+      <Image src={logo} alt="Incorpta logo" height={30} />
       <a href="/">Home</a>
       <a href="/">About</a>
       <a href="/">Careers</a>
@@ -47,26 +55,32 @@ const MathematicallyBottomAlignedUnbalancedLogo = () => {
   );
 };
 
-const Container = ({ children }: { children: React.ReactNode }) => {
+const Container = ({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) => {
   return (
-    <div className="container">
-      <hr />
-      {children}
-    </div>
+    <>
+      <p>{label}</p>
+      <div className="container">{children}</div>
+    </>
   );
 };
 
 export default function OpticallyAlignedUnbalancedLogoDemo() {
   return (
     <>
-      <Container>
+      <Container label="Mathematically aligned center">
+        <MathematicallyCenterAlignedUnbalancedLogo />
+      </Container>
+      <Container label="Mathematically aligned bottom">
         <MathematicallyBottomAlignedUnbalancedLogo />
       </Container>
-      <Container>
+      <Container label="Optically aligned">
         <OpticallyAlignedUnbalancedLogo />
-      </Container>
-      <Container>
-        <MathematicallyCenterAlignedUnbalancedLogo />
       </Container>
     </>
   );
