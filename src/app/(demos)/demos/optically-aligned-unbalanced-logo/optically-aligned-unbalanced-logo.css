@@ -1,0 +1,22 @@
+nav {
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+/* nav::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: red;
+} */

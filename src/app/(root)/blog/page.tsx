@@ -1,8 +1,8 @@
 // TODO : https://dev.to/slanted_dev/nextjs-13-blog-starter-1b6p
 // https://github.com/vercel/next.js/tree/canary/examples/blog-starter 
 
-import { getAllPosts } from "../../lib/api";
-import PostPreview from "../../components/PostPreview";
+import { getAllPosts } from "../../../lib/api";
+import PostPreview from "../../../components/PostPreview";
 
 export default function Blog() {
   const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
