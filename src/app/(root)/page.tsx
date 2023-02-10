@@ -1,38 +1,40 @@
-import Image from 'next/image'
-import Head from 'next/head'
-import Link, { LinkProps } from 'next/link'
-import clsx from 'clsx'
+import Image from "next/image";
+import Head from "next/head";
+import Link, { LinkProps } from "next/link";
+import clsx from "clsx";
 
-import { Button } from '@/components/Button'
-import { Card, CardCta, CardDescription, CardEyebrow, CardTitle } from '@/components/Card'
-import { Container } from '@/components/Container'
+import { Button } from "@/components/Button";
+import {
+  Card,
+  CardCta,
+  CardDescription,
+  CardEyebrow,
+  CardTitle,
+} from "@/components/Card";
+import { Container } from "@/components/Container";
 import {
   TwitterIcon,
   InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
-} from '@/components/SocialIcons'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { formatDate } from '@/lib/formatDate'
-import { SVGProps } from 'react'
-import { BlogPost, getAllPosts } from '@/lib/api'
-
-// type IconProps = {
-//   className: string;
-// }
+} from "@/components/SocialIcons";
+import image1 from "@/images/photos/image-1.jpg";
+import image2 from "@/images/photos/image-2.jpg";
+import image3 from "@/images/photos/image-3.jpg";
+import image4 from "@/images/photos/image-4.jpg";
+import image5 from "@/images/photos/image-5.jpg";
+import logoAirbnb from "@/images/logos/airbnb.svg";
+import logoFacebook from "@/images/logos/facebook.svg";
+import logoPlanetaria from "@/images/logos/planetaria.svg";
+import logoStarbucks from "@/images/logos/starbucks.svg";
+import { generateRssFeed } from "@/lib/generateRssFeed";
+import { formatDate } from "@/lib/formatDate";
+import { SVGProps } from "react";
+import { BlogPost, getAllPosts } from "@/lib/api";
 
 type IconComponent = React.FC<SVGProps<SVGSVGElement>>;
 
-const MailIcon: IconComponent = ({...rest}) => {
+const MailIcon: IconComponent = ({ ...rest }) => {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -52,10 +54,10 @@ const MailIcon: IconComponent = ({...rest}) => {
         className="stroke-zinc-400 dark:stroke-zinc-500"
       />
     </svg>
-  )
-}
+  );
+};
 
-const BriefcaseIcon: IconComponent = ({...rest}) => {
+const BriefcaseIcon: IconComponent = ({ ...rest }) => {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -75,10 +77,10 @@ const BriefcaseIcon: IconComponent = ({...rest}) => {
         className="stroke-zinc-400 dark:stroke-zinc-500"
       />
     </svg>
-  )
-}
+  );
+};
 
-const ArrowDownIcon: IconComponent = ({...rest}) => {
+const ArrowDownIcon: IconComponent = ({ ...rest }) => {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...rest}>
       <path
@@ -88,30 +90,31 @@ const ArrowDownIcon: IconComponent = ({...rest}) => {
         strokeLinejoin="round"
       />
     </svg>
-  )
-}
+  );
+};
 
-function BlogPostPreview({ post }: { post: BlogPost}) {
+function BlogPostPreview({ post }: { post: BlogPost }) {
   return (
     <Card as="article">
-      <CardTitle href={`/blog/${post.slug}`}>
-        {post.title}
-      </CardTitle>
+      <CardTitle href={`/blog/${post.slug}`}>{post.title}</CardTitle>
       <CardEyebrow as="time" dateTime={post.date} decorate>
         {formatDate(post.date)}
       </CardEyebrow>
       <CardDescription>{post.excerpt}</CardDescription>
       <CardCta>Read post</CardCta>
     </Card>
-  )
+  );
 }
 
-function SocialLink({ icon: Icon, ...props }: { icon: IconComponent } & LinkProps ) {
+function SocialLink({
+  icon: Icon,
+  ...props
+}: { icon: IconComponent } & LinkProps) {
   return (
     <Link className="group -m-1 p-1" {...props}>
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
-  )
+  );
 }
 
 function Newsletter() {
@@ -140,7 +143,7 @@ function Newsletter() {
         </Button>
       </div>
     </form>
-  )
+  );
 }
 
 type WorkExperience = {
@@ -149,39 +152,39 @@ type WorkExperience = {
   logo: string;
   start: string;
   end: string;
-}
+};
 
 function Resume() {
   let resume: WorkExperience[] = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
+      company: "Planetaria",
+      title: "CEO",
       logo: logoPlanetaria,
-      start: '2019',
-      end: 'Present'
+      start: "2019",
+      end: "Present",
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
+      company: "Airbnb",
+      title: "Product Designer",
       logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      start: "2014",
+      end: "2019",
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
+      company: "Facebook",
+      title: "iOS Software Engineer",
       logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      start: "2011",
+      end: "2014",
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
+      company: "Starbucks",
+      title: "Shift Supervisor",
       logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      start: "2008",
+      end: "2011",
     },
-  ]
+  ];
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -207,17 +210,11 @@ function Resume() {
               <dt className="sr-only">Date</dt>
               <dd
                 className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start} until ${
-                  role.end
-                }`}
+                aria-label={`${role.start} until ${role.end}`}
               >
-                <time dateTime={role.start}>
-                  {role.start}
-                </time>{' '}
-                <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end}>
-                  {role.end}
-                </time>
+                <time dateTime={role.start}>{role.start}</time>{" "}
+                <span aria-hidden="true">—</span>{" "}
+                <time dateTime={role.end}>{role.end}</time>
               </dd>
             </dl>
           </li>
@@ -228,11 +225,17 @@ function Resume() {
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
-  )
+  );
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  let rotations = [
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "rotate-2",
+    "-rotate-2",
+  ];
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -241,7 +244,7 @@ function Photos() {
           <div
             key={image.src}
             className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+              "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
               rotations[imageIndex % rotations.length]
             )}
           >
@@ -255,14 +258,14 @@ function Photos() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 // TODO Convert to app folder method
 export default function Home() {
   const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
   const recentPosts = posts.slice(0, 2);
-  
+
   return (
     <>
       <Head>
@@ -324,5 +327,5 @@ export default function Home() {
         </div>
       </Container>
     </>
-  )
+  );
 }

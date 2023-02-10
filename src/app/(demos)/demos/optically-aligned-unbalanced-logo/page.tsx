@@ -6,6 +6,7 @@ const OpticallyAlignedUnbalancedLogo = () => {
   return (
     <nav
       style={{
+        display: "flex",
         alignItems: "center",
       }}
     >
@@ -29,6 +30,7 @@ const MathematicallyCenterAlignedUnbalancedLogo = () => {
   return (
     <nav
       style={{
+        display: "flex",
         alignItems: "center",
       }}
     >
@@ -44,6 +46,7 @@ const MathematicallyBottomAlignedUnbalancedLogo = () => {
   return (
     <nav
       style={{
+        display: "flex",
         alignItems: "flex-end",
       }}
     >
